@@ -1,0 +1,16 @@
+{
+  "name": "word-scrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "nodemon": "^2.0.15",
+    "word-extractor": "^1.0.4"
+  }
+}
