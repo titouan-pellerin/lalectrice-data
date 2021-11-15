@@ -4,7 +4,7 @@ Scrap data from Word (.docx) files following a pattern to fill a Strapi back-end
 
 Errors and logs are kinda generated in the `./json` folder
 
-Used for this website : https://lalectrice.fr/
+Used for this website : https://lalectrice.fr/ (not published yet, still the old version)
 
 ## Setup
 
