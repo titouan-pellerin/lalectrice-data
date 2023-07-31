@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function fetchOpenLibraryBook(isbn) {
     try {
-        const { data } = await axios.get(`https://openlibrary.org/isbn/${isbn}.json`);
+        const { data } = await axios.get(`https://openlibrary.org/isbn/${isbn}.json`, { timeout: 60000 });
 
         const title = data.title;
         const publisher = data.publishers ? data.publishers[0] : null;

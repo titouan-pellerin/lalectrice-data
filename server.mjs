@@ -15,8 +15,8 @@ const openLibraryErrors = [];
 const bnfErrors = [];
 
 const limiter = new Bottleneck({
-    minTime: 250, //minimum time between requests
-    maxConcurrent: 40, //maximum concurrent requests
+    minTime: 500, //minimum time between requests
+    maxConcurrent: 5, //maximum concurrent requests
 });
 
 const chroniclesInfos = Object.fromEntries(

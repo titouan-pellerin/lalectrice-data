@@ -12,7 +12,7 @@ async function fetchBnfBook(isbn) {
         image = null;
 
     try {
-        const { data } = await axios.get(`http://catalogue.bnf.fr/api/SRU?version=1.2&operation=searchRetrieve&query=bib.isbn%20adj%20%22${isbn}%22`);
+        const { data } = await axios.get(`http://catalogue.bnf.fr/api/SRU?version=1.2&operation=searchRetrieve&query=bib.isbn%20adj%20%22${isbn}%22`, { timeout: 60000 });
         const parsedData = await parseStringPromise(data);
         const records = parsedData["srw:searchRetrieveResponse"]["srw:records"];
 
@@ -104,7 +104,7 @@ async function fetchBnfBook(isbn) {
                 description,
                 image,
             };
-        }
+        } else throw new Error("BnF content error");
     } catch (err) {
         console.error(err);
         throw new Error(err);

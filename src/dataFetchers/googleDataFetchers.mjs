@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function fetchGoogleBooksBook(isbn) {
     try {
-        const { data } = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${process.env.GOOGLE_API_KEY}`);
+        const { data } = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${process.env.GOOGLE_API_KEY}`, { timeout: 60000 });
         const title = data.items[0].volumeInfo.title;
         const publisher = data.items[0].volumeInfo.publisher;
         const date = new Date(data.items[0].volumeInfo.publishedDate);
