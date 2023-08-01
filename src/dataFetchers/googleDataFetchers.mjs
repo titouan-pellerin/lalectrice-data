@@ -9,7 +9,7 @@ async function fetchGoogleBooksBook(isbn) {
         const description = data.items[0].volumeInfo.description;
         const pages = data.items[0].volumeInfo.pageCount ? data.items[0].volumeInfo.pageCount : 0;
         const image = data.items[0].volumeInfo.imageLinks ? data.items[0].volumeInfo.imageLinks.thumbnail : null;
-        const authors = data.items[0].volumeInfo.authors;
+        const authors = data.items[0].volumeInfo.authors?.map((author) => ({ name: author }));
         const collection = null;
         const translators = null;
 

@@ -4,7 +4,7 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "dev": "nodemon -r dotenv/config server.mjs",
+        "dev": "nodemon -r dotenv/config server.mjs dotenv_config_path=.env.local",
         "start": "node -r dotenv/config server.mjs"
     },
     "author": "",
@@ -14,6 +14,7 @@
         "bottleneck": "^2.19.5",
         "dotenv": "^16.3.1",
         "nodemon": "^3.0.1",
+        "openai": "^3.3.0",
         "word-extractor": "^1.0.4",
         "xml2js": "^0.6.2"
     }

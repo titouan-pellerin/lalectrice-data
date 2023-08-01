@@ -2,6 +2,7 @@ import { readdirSync, writeFileSync } from "node:fs";
 import { parseInfos } from "./src/docParser.mjs";
 import { fetchBnfBook, fetchGoogleBooksBook, fetchOpenLibraryBook } from "./src/dataFetchers/index.mjs";
 import Bottleneck from "bottleneck";
+import { combineBookData } from "./src/dataSelectors/bookDataSelector.mjs";
 
 const docsFolder = "./chroniques";
 const outDir = "./json";
@@ -75,7 +76,10 @@ const booksData = Object.fromEntries(
 
                         console.log(i + 1 + "/" + chroniclesInfosCount);
 
-                        return [isbn, data];
+                        const combinedResults = combineBookData(data);
+                        // const openAiResults = await checkForConflicts(combinedResults);
+
+                        return [isbn, combinedResults];
                     })
                 )
         )
