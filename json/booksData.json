@@ -1,4 +1,18 @@
 {
+    "2841115445": {
+        "title": "Le jardin blanc",
+        "authors": [
+            { "name": "Stephanie Barron", "biography": "", "nationality": null, "photo": "https://covers.openlibrary.org/a/olid/OL7304087A-L.jpg", "description": null },
+            { "name": "Isabelle D. Philippe", "biography": "", "nationality": null, "photo": "https://covers.openlibrary.org/a/olid/OL3128222A-L.jpg", "description": null }
+        ],
+        "publisher": "NIL",
+        "date": "2013-08-21T22:00:00.000Z",
+        "description": "Jo Bellamy, jeune paysagiste américaine, part à Sissinghurst, dans le Kent, étudier le célèbre jardin blanc créé par l'amie de Virginia Woolf, Vita Sackville-West. Un jour après l'annonce de son départ, son grand-père Jock, d'origine britannique, se suicide. Jo découvre qu'il avait lui-même travaillé dans ce jardin pendant la Seconde Guerre mondiale et décide de profiter de son voyage pour en savoir plus et comprendre son geste. A Sissinghurst, Jo trouve un journal intime dont l'étiquette porte le nom de son grand-père. Mais, en le déchiffrant, elle doit se rendre à l'évidence : ce journal n'est pas le sien. Soupçonnant son auteur d'être Virginia Woolf, elle file le faire expertiser chez Sotheby's, où le département des manuscrits concède que le style du journal rappelle Woolf. A un détail près : les dates. Le 28 mars 1941, Virginia a rempli ses poches de pierres avant d'aller se noyer dans l'Ouse. Or le journal commence le 29 mars 1941. On y découvre comment, le 28 mars, Virginia s'est enfuie de chez elle en cachette de son mari, Leonard, pour se réfugier chez son amie Vita. Virginia, dont la peur est palpable, soulève d'inquiétantes interrogations sur un groupe d'amis de Leonard, membres de la très secrète confrérie des \"Apôtres de Cambridge\". Bientôt, Jo est amené à jouer avec cette idée : et si Virginia Woolf ne s'était pas suicidée le 28 mars 1941 ? Si elle était morte plus tard ? Si on l'avait tuée ? Peut-être la seconde moitié du cahier, qui a été arrachée, pourrait-elle expliquer les craintes de Virginia et les liens de la romancière avec Jock... Encore faut-il trouver les pages manquantes.",
+        "pages": 406,
+        "image": "https://covers.openlibrary.org/b/isbn/2841115445-L.jpg",
+        "collection": null,
+        "translators": null
+    },
     "2021095937": {
         "title": "La 5e saison : roman",
         "authors": [{ "name": "Mons Kallentoft" }],
@@ -128,20 +142,6 @@
         "description": "Dans le Montana, en 1980. Autour de Pete, assistant social dévoué, gravite tout un monde d'écorchés vifs et d'âmes déséquilibrées. Il y a Beth, son ex infidèle et alcoolique, Rachel, leur fille de treize ans, en fugue dans les bas-fonds de Tacoma, Luke, son frère, recherché par la police. Et puis il y a Cecil l'adolescent violent et sa mère droguée et hystérique, et ce jeune Benjamin, qui vit dans les bois environnants, avec son père, Jeremiah Pearl, un illuminé persuadé que l'apocalypse est proche, que la civilisation n'est que perversion et que le salut réside dans la survie et l'anarchie. Pearl qui s'est exclu de la société, peut-être par paranoïa, peut-être aussi pour cacher qu'il aurait tué son épouse et leurs cinq enfants. Au milieu de cette cour des miracles, Pete pourrait être l'ange rédempteur, s'il n'était pas lui-même complètement perdu...",
         "pages": 592,
         "image": null,
-        "collection": null,
-        "translators": null
-    },
-    "2841115445": {
-        "title": "Le jardin blanc",
-        "authors": [
-            { "name": "Stephanie Barron", "biography": "", "nationality": null, "photo": "https://covers.openlibrary.org/a/olid/OL7304087A-L.jpg", "description": null },
-            { "name": "Isabelle D. Philippe", "biography": "", "nationality": null, "photo": "https://covers.openlibrary.org/a/olid/OL3128222A-L.jpg", "description": null }
-        ],
-        "publisher": "NIL",
-        "date": "2013-08-21T22:00:00.000Z",
-        "description": "Jo Bellamy, jeune paysagiste américaine, part à Sissinghurst, dans le Kent, étudier le célèbre jardin blanc créé par l'amie de Virginia Woolf, Vita Sackville-West. Un jour après l'annonce de son départ, son grand-père Jock, d'origine britannique, se suicide. Jo découvre qu'il avait lui-même travaillé dans ce jardin pendant la Seconde Guerre mondiale et décide de profiter de son voyage pour en savoir plus et comprendre son geste. A Sissinghurst, Jo trouve un journal intime dont l'étiquette porte le nom de son grand-père. Mais, en le déchiffrant, elle doit se rendre à l'évidence : ce journal n'est pas le sien. Soupçonnant son auteur d'être Virginia Woolf, elle file le faire expertiser chez Sotheby's, où le département des manuscrits concède que le style du journal rappelle Woolf. A un détail près : les dates. Le 28 mars 1941, Virginia a rempli ses poches de pierres avant d'aller se noyer dans l'Ouse. Or le journal commence le 29 mars 1941. On y découvre comment, le 28 mars, Virginia s'est enfuie de chez elle en cachette de son mari, Leonard, pour se réfugier chez son amie Vita. Virginia, dont la peur est palpable, soulève d'inquiétantes interrogations sur un groupe d'amis de Leonard, membres de la très secrète confrérie des \"Apôtres de Cambridge\". Bientôt, Jo est amené à jouer avec cette idée : et si Virginia Woolf ne s'était pas suicidée le 28 mars 1941 ? Si elle était morte plus tard ? Si on l'avait tuée ? Peut-être la seconde moitié du cahier, qui a été arrachée, pourrait-elle expliquer les craintes de Virginia et les liens de la romancière avec Jock... Encore faut-il trouver les pages manquantes.",
-        "pages": 406,
-        "image": "https://covers.openlibrary.org/b/isbn/2841115445-L.jpg",
         "collection": null,
         "translators": null
     },
