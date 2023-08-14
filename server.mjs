@@ -10,7 +10,7 @@ import { fetchBnfBook } from "./src/fetchers/bnfDataFetchers.mjs";
 import { combineBookData } from "./src/selectors/bookDataSelector.mjs";
 
 import { publishAuthor } from "./src/publishers/publishAuthor.mjs";
-import { publishPublisher } from "./src/publishers/publishPublisher.mjs";
+import { addCollections, publishPublisher } from "./src/publishers/publishPublisher.mjs";
 import { publishCollection } from "./src/publishers/publishCollection.mjs";
 import { publishBook } from "./src/publishers/publishBook.mjs";
 
@@ -22,58 +22,83 @@ const limiter = new Bottleneck({
     maxConcurrent: 5, //maximum concurrent requests
 });
 
+const localLimiter = new Bottleneck({
+    minTime: 50, //minimum time between requests
+    maxConcurrent: 10, //maximum concurrent requests
+});
+
+const outDir = "./json";
+const chroniclesErrors = [];
+
+// const parsedChroniclesInfos = await parseDocs();
+// await fetchData(chroniclesInfos);
 publishData();
 
 async function publishData() {
+    const strapiErrors = [];
+
     const publishersCollections = new Map();
 
-    Object.entries(booksData)
-        // .slice(0, 15)
-        .forEach(async ([isbn, book]) => {
-            limiter.schedule(async () => {
-                const authorsIds = [],
-                    translatorsIds = [];
+    const strapiBooks = (
+        await Promise.all(
+            Object.entries(booksData)
+                // .slice(50, 51)
+                .map(async ([isbn, book]) => {
+                    return await localLimiter.schedule(async () => {
+                        const authorsIds = [],
+                            translatorsIds = [];
 
-                try {
-                    if (book.authors && Array.isArray(book.authors)) {
-                        const ids = (await Promise.all(book.authors?.map((author) => author && publishAuthor(author)))).map((author) => author.id);
-                        authorsIds.push(...ids);
-                    }
+                        try {
+                            if (book.authors && Array.isArray(book.authors)) {
+                                const ids = (await Promise.all(book.authors?.map((author) => author && publishAuthor(author)))).map((author) => author.id);
+                                authorsIds.push(...ids);
+                            }
 
-                    if (book.translators && Array.isArray(book.translators)) {
-                        const ids = (await Promise.all(book.translators?.map((translator) => translator && publishAuthor(translator, true)))).map((translator) => translator.id);
-                        translatorsIds.push(...ids);
-                    }
+                            if (book.translators && Array.isArray(book.translators)) {
+                                const ids = (await Promise.all(book.translators?.map((translator) => translator && publishAuthor(translator, true)))).map(
+                                    (translator) => translator.id
+                                );
+                                translatorsIds.push(...ids);
+                            }
 
-                    const publisherId = await publishPublisher(book.publisher)?.id;
-                    const collectionId = await publishCollection(book.collection)?.id;
+                            const publisherId = (await publishPublisher(book.publisher))?.id;
+                            const collectionId = (await publishCollection(book.collection))?.id;
 
-                    console.log(authorsIds, translatorsIds, publisherId, collectionId);
+                            console.log(authorsIds, translatorsIds, publisherId, collectionId);
 
-                    if (!publishersCollections.has(publisherId)) publishersCollections.set(publisherId, new Set());
-                    publishersCollections.get(publisherId).add(collectionId);
+                            if (publisherId && collectionId) {
+                                if (!publishersCollections.has(publisherId)) publishersCollections.set(publisherId, new Set());
+                                publishersCollections.get(publisherId).add(collectionId);
+                            }
 
-                    const newBook = await publishBook(isbn, book, chroniclesInfos[isbn], [...authorsIds, ...translatorsIds], [publisherId], [collectionId]);
-                } catch (err) {
-                    console.error(err.response.data.error.details.path);
-                }
-            });
-        });
+                            return await publishBook(isbn, book, chroniclesInfos[isbn], [...authorsIds, ...translatorsIds], [publisherId], [collectionId]);
+                        } catch (err) {
+                            console.error(err);
+                            strapiErrors.push({ isbn, error: JSON.parse(err.message) });
+                        }
+                    });
+                })
+        )
+    ).filter((result) => result !== undefined);
+
+    try {
+        const collections = await Promise.all(
+            [...publishersCollections.entries()].map(([publisherId, collectionsIds]) => addCollections([...collectionsIds.values()], publisherId))
+        );
+    } catch (err) {
+        strapiErrors.push({ collection: { error: JSON.parse(err.message) } });
+    }
+
+    writeFileSync(outDir + "/strapiErrors.json", JSON.stringify(strapiErrors));
+    writeFileSync(outDir + "/strapiStatistics.json", JSON.stringify({ success: strapiBooks.length, errors: strapiErrors.length }));
 }
 
 async function parseDocs() {
     const docsFolder = "./chroniques";
-    const outDir = "./json";
     const docs = readdirSync(docsFolder).map((file) => docsFolder + "/" + file);
-
-    const chroniclesErrors = [];
     const chroniclesKeys = new Map();
-    const booksErrors = [];
-    const googleErrors = [];
-    const openLibraryErrors = [];
-    const bnfErrors = [];
 
-    const chroniclesInfos = Object.fromEntries(
+    const parsedChroniclesInfos = Object.fromEntries(
         (
             await Promise.all(
                 docs.map(async (filepath) => {
@@ -81,7 +106,7 @@ async function parseDocs() {
                         const data = await parseInfos(filepath);
                         if (chroniclesKeys.has(data.isbn)) console.warn("Warning duplicate filepath: " + chroniclesKeys.get(data.isbn) + " and " + filepath);
                         chroniclesKeys.set(data.isbn, filepath);
-                        return [data.isbn, data];
+                        return [data.isbn, { data, file: filepath }];
                     } catch (err) {
                         chroniclesErrors.push(err.message);
                     }
@@ -89,12 +114,25 @@ async function parseDocs() {
             )
         ).filter((infos) => infos !== undefined)
     );
-    const chroniclesInfosCount = Object.keys(chroniclesInfos).length;
+
+    writeFileSync(outDir + "/chroniclesInfos.json", JSON.stringify(parsedChroniclesInfos));
+    writeFileSync(outDir + "/chroniclesErrors.json", JSON.stringify(chroniclesErrors));
+
+    return parsedChroniclesInfos;
+}
+
+async function fetchData() {
+    const booksErrors = [];
+    const googleErrors = [];
+    const openLibraryErrors = [];
+    const bnfErrors = [];
+
+    const chroniclesInfosCount = Object.keys(parsedChroniclesInfos).length;
 
     const booksData = Object.fromEntries(
         (
             await Promise.all(
-                Object.values(chroniclesInfos)
+                Object.values(parsedChroniclesInfos)
                     // .slice(0, 10)
                     .map(({ isbn }, i) =>
                         limiter.schedule(async () => {
@@ -138,8 +176,6 @@ async function parseDocs() {
         ).filter((infos) => infos !== undefined)
     );
 
-    writeFileSync(outDir + "/chroniclesInfos.json", JSON.stringify(chroniclesInfos));
-    writeFileSync(outDir + "/chroniclesErrors.json", JSON.stringify(chroniclesErrors));
     writeFileSync(outDir + "/booksData.json", JSON.stringify(booksData));
     writeFileSync(outDir + "/booksErrors.json", JSON.stringify(booksErrors));
 
@@ -147,7 +183,7 @@ async function parseDocs() {
         outDir + "/statistics.json",
         JSON.stringify({
             chroniclesErrorsCount: chroniclesErrors.length,
-            chroniclesInfosCount: chroniclesInfos.length,
+            chroniclesInfosCount: parsedChroniclesInfos.length,
             chroniclesTotal: docs.length,
             booksDataCount: Object.keys(booksData).length,
             booksErrosCount: {

@@ -5,7 +5,7 @@ async function publishPublisher(publisher) {
     if (!publisher) return;
 
     try {
-        const { data: existingPublisherData } = await axios.get(`${env.STRAPI_URL}/api/publishers?filters[name][$eqi]=${publisher}`, {
+        const { data: existingPublisherData } = await axios.get(`${env.STRAPI_URL}/api/publishers?filters[name][$eqi]=${encodeURIComponent(publisher)}`, {
             headers: { Authorization: `Bearer ${env.STRAPI_TOKEN}` },
         });
 
@@ -15,11 +15,27 @@ async function publishPublisher(publisher) {
             name: publisher,
         };
 
-        const { data } = await axios.post(`${env.STRAPI_URL}/api/publishers`, { data: payload }, { headers: { Authorization: `bearer ${env.STRAPI_TOKEN}` } });
+        const { data } = await axios.post(`${env.STRAPI_URL}/api/publishers`, { data: payload }, { headers: { Authorization: `Bearer ${env.STRAPI_TOKEN}` } });
+
         return data.data;
     } catch (err) {
-        console.error(err.response.data.error.details.errors, publisher);
+        throw new Error(JSON.stringify(err.response.data));
     }
 }
 
-export { publishPublisher };
+async function addCollections(ids = [], publisherId) {
+    if (!ids || ids.length === 0 || !publisherId) return;
+
+    try {
+        const { data } = await axios.put(
+            `${env.STRAPI_URL}/api/publishers/${publisherId}`,
+            { data: { collections: ids } },
+            { headers: { Authorization: `Bearer ${env.STRAPI_TOKEN}` } }
+        );
+        return data.data;
+    } catch (err) {
+        throw new Error(JSON.stringify(err.response.data));
+    }
+}
+
+export { publishPublisher, addCollections };

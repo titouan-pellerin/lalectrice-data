@@ -1,0 +1,322 @@
+[
+    {
+        "isbn": "2951895539",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782923841816",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "pageCount must be a `number` type, but the final value was: `NaN`.",
+                "details": { "errors": [{ "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }] }
+            }
+        }
+    },
+    {
+        "isbn": "9782071459735",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782072704",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782864249",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782330068",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782405231",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9828489970",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782283090172",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782092556",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782848726906",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782377241005",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782748363807",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "fullname must be a `string` type, but the final value was: `null`.",
+                "details": { "errors": [{ "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }] }
+            }
+        }
+    },
+    {
+        "isbn": "9782923841465",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "fullname must be a `string` type, but the final value was: `null`.",
+                "details": { "errors": [{ "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }] }
+            }
+        }
+    },
+    {
+        "isbn": "9782092550",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782748363838",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "fullname must be a `string` type, but the final value was: `null`.",
+                "details": { "errors": [{ "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }] }
+            }
+        }
+    },
+    {
+        "isbn": "9782070141187",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782330072",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782842214937",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782274851422",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    }
+]
