@@ -3,6 +3,7 @@ import { env } from "node:process";
 import { imageDownloader } from "../fetchers/imageDownloader.mjs";
 import { createReadStream, readFileSync, statSync } from "node:fs";
 import FormData from "form-data";
+import slugify from "slugify";
 
 async function publishBook(isbn, book, chronicle, authorsIds = [], publishersIds = [], collectionId = []) {
     let coverPath;
@@ -15,16 +16,20 @@ async function publishBook(isbn, book, chronicle, authorsIds = [], publishersIds
             if (stats.size > 1000) formData.append("files.cover", createReadStream(coverPath), isbn + ".jpg");
         }
 
+        let slug;
+        if (book.title) slug = slugify(book.title, { locale: "fr", trim: true, replacement: "-", lower: true, strict: true });
+
         const payload = {
             isbn,
             title: book.title,
-            pageCount: book.pages,
-            chronicleContent: chronicle.data.bodySplit,
-            publishDate: frenchDateToEnglishDate(chronicle.data.firstDate),
+            pageCount: isNaN(book.pages) ? 0 : book.pages,
+            chronicleContent: chronicle?.data?.bodySplit,
+            publishDate: chronicle?.data?.firstDate ? frenchDateToEnglishDate(chronicle.data.firstDate) : null,
             authors: authorsIds.filter((value) => value !== undefined),
             publishers: publishersIds.filter((value) => value !== undefined),
             collections: collectionId.filter((value) => value !== undefined),
-            columnist: 1,
+            columnist: 2,
+            slug,
         };
 
         formData.append("data", JSON.stringify(payload));
@@ -35,22 +40,22 @@ async function publishBook(isbn, book, chronicle, authorsIds = [], publishersIds
 
         return data;
     } catch (err) {
-        console.log(err);
         throw new Error(JSON.stringify(err.response.data));
     }
 }
 
 function frenchDateToEnglishDate(frenchDate) {
     const monthsInFrench = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-    const monthsInEnglish = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     let [day, month, year] = frenchDate.split(" ");
 
-    month = monthsInEnglish[monthsInFrench.indexOf(month.toLowerCase())];
+    const monthIndex = monthsInFrench.indexOf(month.toLowerCase());
 
-    const englishDate = `${day} ${month} ${year}`;
+    const monthNumber = (monthIndex + 1).toString().padStart(2, "0");
 
-    return new Date(Date.parse(englishDate));
+    day = parseInt(day, 10).toString().padStart(2, "0");
+
+    return `${year}-${monthNumber}-${day}`;
 }
 
 export { publishBook };

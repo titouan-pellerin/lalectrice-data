@@ -1,6 +1,4 @@
-import WordExtractor from "word-extractor";
-
-const extractor = new WordExtractor();
+import * as mammoth from "mammoth";
 
 async function parseInfos(path) {
     const docBody = await getDocBody(path);
@@ -16,10 +14,11 @@ async function parseInfos(path) {
 
 async function getDocBody(path) {
     try {
-        const doc = await extractor.extract(path);
-        return doc.getBody();
+        const { value: docBody } = await mammoth.extractRawText({ path: path });
+
+        return docBody;
     } catch (err) {
-        throw new Error(err);
+        throw new Error(err + " - " + path);
     }
 }
 

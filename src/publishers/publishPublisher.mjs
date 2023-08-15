@@ -1,11 +1,14 @@
 import axios from "axios";
 import { env } from "node:process";
+import slugify from "slugify";
 
 async function publishPublisher(publisher) {
     if (!publisher) return;
 
     try {
-        const { data: existingPublisherData } = await axios.get(`${env.STRAPI_URL}/api/publishers?filters[name][$eqi]=${encodeURIComponent(publisher)}`, {
+        const slug = slugify(publisher, { locale: "fr", trim: true, replacement: "-", lower: true, strict: true });
+
+        const { data: existingPublisherData } = await axios.get(`${env.STRAPI_URL}/api/publishers?filters[slug][$eqi]=${encodeURIComponent(slug)}`, {
             headers: { Authorization: `Bearer ${env.STRAPI_TOKEN}` },
         });
 
@@ -13,6 +16,7 @@ async function publishPublisher(publisher) {
 
         const payload = {
             name: publisher,
+            slug,
         };
 
         const { data } = await axios.post(`${env.STRAPI_URL}/api/publishers`, { data: payload }, { headers: { Authorization: `Bearer ${env.STRAPI_TOKEN}` } });

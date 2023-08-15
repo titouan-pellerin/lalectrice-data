@@ -1,1 +1,12 @@
-["Error: Unable to read this type of file","./chroniques/La fille au bois dormant https - .docx","./chroniques/Etonnants voyageurs.docx","./chroniques/liens Actualitte.docx","./chroniques/Hors la loi.docx","./chroniques/Enquête au collège.docx","./chroniques/Doc1Gameof thrones.docx","./chroniques/Bâtir&SeConstruireen10portraits-OK.docx","./chroniques/Agenda 2015.docx"]
+[
+    "Error: Can't find end of central directory : is this a zip file ? If it is, see https://stuk.github.io/jszip/documentation/howto/read_zip.html - ./chroniques/.DS_Store",
+    "TypeError: Cannot read properties of undefined (reading 'children') - ./chroniques/Le peigne de Cléopatre.doc",
+    "./chroniques/Agenda 2015.docx",
+    "./chroniques/Doc1Gameof thrones.docx",
+    "./chroniques/Enquête au collège.docx",
+    "./chroniques/Etonnants voyageurs.docx",
+    "./chroniques/Hors la loi.docx",
+    "./chroniques/La fille au bois dormant https - .docx",
+    "./chroniques/liens Actualitte.docx",
+    "./chroniques/Bâtir&SeConstruireen10portraits-OK.docx"
+]

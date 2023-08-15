@@ -6,13 +6,26 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
+            }
+        }
+    },
+    {
+        "isbn": "9782714447074",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "This attribute must be unique",
+                "details": { "errors": [{ "path": ["slug"], "message": "This attribute must be unique", "name": "ValidationError" }] }
             }
         }
     },
@@ -35,10 +48,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -52,10 +66,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -69,10 +84,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -86,10 +102,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -103,10 +120,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -120,10 +138,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -137,10 +156,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -154,10 +174,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -171,11 +192,29 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "isbn": "9782847203523",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["publishDate"], "message": "publishDate must be defined.", "name": "ValidationError" },
+                        { "path": ["chronicleContent"], "message": "chronicleContent must be defined.", "name": "ValidationError" }
                     ]
                 }
             }
@@ -188,10 +227,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -205,8 +245,13 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "fullname must be a `string` type, but the final value was: `null`.",
-                "details": { "errors": [{ "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }] }
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }
+                    ]
+                }
             }
         }
     },
@@ -217,8 +262,13 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "fullname must be a `string` type, but the final value was: `null`.",
-                "details": { "errors": [{ "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }] }
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }
+                    ]
+                }
             }
         }
     },
@@ -229,10 +279,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -246,8 +297,13 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "fullname must be a `string` type, but the final value was: `null`.",
-                "details": { "errors": [{ "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }] }
+                "message": "2 errors occurred",
+                "details": {
+                    "errors": [
+                        { "path": ["fullname"], "message": "fullname must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be a `string` type, but the final value was: `null`.", "name": "ValidationError" }
+                    ]
+                }
             }
         }
     },
@@ -258,16 +314,18 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
             }
         }
     },
+    { "isbn": "9782072543371", "error": { "data": null, "error": { "status": 500, "name": "InternalServerError", "message": "Internal Server Error" } } },
     {
         "isbn": "9782330072",
         "error": {
@@ -275,10 +333,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -292,10 +351,11 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
@@ -309,13 +369,50 @@
             "error": {
                 "status": 400,
                 "name": "ValidationError",
-                "message": "2 errors occurred",
+                "message": "3 errors occurred",
                 "details": {
                     "errors": [
                         { "path": ["title"], "message": "title must be a `string` type, but the final value was: `null`.", "name": "ValidationError" },
+                        { "path": ["slug"], "message": "slug must be defined.", "name": "ValidationError" },
                         { "path": ["pageCount"], "message": "pageCount must be a `number` type, but the final value was: `NaN`.", "name": "ValidationError" }
                     ]
                 }
+            }
+        }
+    },
+    {
+        "isbn": "9782897770211",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "This attribute must be unique",
+                "details": { "errors": [{ "path": ["slug"], "message": "This attribute must be unique", "name": "ValidationError" }] }
+            }
+        }
+    },
+    {
+        "isbn": "9782070141449",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "This attribute must be unique",
+                "details": { "errors": [{ "path": ["slug"], "message": "This attribute must be unique", "name": "ValidationError" }] }
+            }
+        }
+    },
+    {
+        "isbn": "9782070116157",
+        "error": {
+            "data": null,
+            "error": {
+                "status": 400,
+                "name": "ValidationError",
+                "message": "This attribute must be unique",
+                "details": { "errors": [{ "path": ["slug"], "message": "This attribute must be unique", "name": "ValidationError" }] }
             }
         }
     }

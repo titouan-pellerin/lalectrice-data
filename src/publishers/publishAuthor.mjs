@@ -3,12 +3,16 @@ import { env } from "node:process";
 import { imageDownloader } from "../fetchers/index.mjs";
 import FormData from "form-data";
 import { createReadStream, statSync } from "node:fs";
+import slugify from "slugify";
 
 async function publishAuthor(author, isTranslator = false) {
     try {
         const formData = new FormData();
 
-        const { data: existingAuthorData } = await axios.get(`${env.STRAPI_URL}/api/authors?filters[fullname][$eqi]=${encodeURIComponent(author.name)}`, {
+        let slug = null;
+        if (author.name) slug = slugify(author.name, { locale: "fr", trim: true, replacement: "-", lower: true, strict: true });
+
+        const { data: existingAuthorData } = await axios.get(`${env.STRAPI_URL}/api/authors?filters[slug][$eqi]=${encodeURIComponent(slug)}`, {
             headers: { Authorization: `Bearer ${env.STRAPI_TOKEN}` },
         });
 
@@ -27,6 +31,7 @@ async function publishAuthor(author, isTranslator = false) {
             translator: isTranslator,
             description: author.description || author.biography,
             nationality: author.nationality,
+            slug,
         };
 
         formData.append("data", JSON.stringify(payload));
@@ -35,7 +40,6 @@ async function publishAuthor(author, isTranslator = false) {
 
         return data.data;
     } catch (err) {
-        console.log(err);
         throw new Error(JSON.stringify(err.response.data));
     }
 }

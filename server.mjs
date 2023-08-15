@@ -64,16 +64,13 @@ async function publishData() {
                             const publisherId = (await publishPublisher(book.publisher))?.id;
                             const collectionId = (await publishCollection(book.collection))?.id;
 
-                            console.log(authorsIds, translatorsIds, publisherId, collectionId);
-
                             if (publisherId && collectionId) {
                                 if (!publishersCollections.has(publisherId)) publishersCollections.set(publisherId, new Set());
                                 publishersCollections.get(publisherId).add(collectionId);
                             }
-
+                            console.log("Publishing...", isbn);
                             return await publishBook(isbn, book, chroniclesInfos[isbn], [...authorsIds, ...translatorsIds], [publisherId], [collectionId]);
                         } catch (err) {
-                            console.error(err);
                             strapiErrors.push({ isbn, error: JSON.parse(err.message) });
                         }
                     });
